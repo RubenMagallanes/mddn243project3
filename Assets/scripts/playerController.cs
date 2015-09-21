@@ -23,4 +23,10 @@ public class playerController : MonoBehaviour {
 		pl.AddForce (dir * speed);
 	}
 
+	void OnCollisionEnter(Collision other){
+		//check for level end / door etc
+		if (other.transform.tag == "goal") {
+			GameManager.completeLevel();
+		}
+	}
 }
