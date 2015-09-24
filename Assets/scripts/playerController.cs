@@ -18,9 +18,16 @@ public class playerController : MonoBehaviour {
 	void FixedUpdate(){
 		float moveSideways = Input.GetAxis("Horizontal");
 
+		//probably dont want to add as force, rather just affect velocity directly
+
+
+		//also constrain to the same z axis
+
 		Vector3 dir = new Vector3 (moveSideways, 0.0f, 0.0f);
 
-		pl.AddForce (dir * speed);
+		//pl.position.Set (pl.position + dir);
+		pl.transform.position += (dir * speed);
+		//pl.AddForce (dir * speed);
 	}
 
 	void OnCollisionEnter(Collision other){
