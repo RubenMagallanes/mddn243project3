@@ -11,8 +11,12 @@ public class playerController : MonoBehaviour {
 	public Queue actionQueue;  // user's ordered versionis transferred to this
 
 
-	private Action currentAction; 
+	private Action currentAction;
+	private int actionFrameCountCurrent;
+	private int actionFrameCountFinal;
 	private bool done = true; // true when ready to grab next action
+
+	public int movementSpeed = 1;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,20 +26,28 @@ public class playerController : MonoBehaviour {
 
 		fillActionList ();
 		//localCommand = actionList.Dequeue()
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//only moves player of in action mode
+		if (movementMode) {
+			checkGetAction();
+			switch(currentAction.action){
+			case "right":
+				transform.position.x += movementSpeed;
+
+			}
+		}
 	}
-	
+
+	//checks to see if old actions done, if so
+	void checkGetAction(){
+
+	}
 	void FixedUpdate(){
-		//float moveSideways = Input.GetAxis("Horizontal");
 
-		//Vector3 dir = new Vector3 (moveSideways, 0.0f, 0.0f);
-
-		//pl.position.Set (pl.position + dir);
-		//pl.AddForce (dir * speed);
 	}
 
 	void OnCollisionEnter(Collision other){
@@ -71,13 +83,15 @@ public class playerController : MonoBehaviour {
 		//post: actionQueue contains actions in right ofder
 	} 
 
-	public static class Action{
+	public class Action{
 		public string action; // can be walk, jump, etc
+		public int frameCount; // number of frames to do this action, may not need for all actions
 
 		public Action(string kind){
 			this.action = kind;
 		}
 
+		//should probably make other 
 	}
 }
 
