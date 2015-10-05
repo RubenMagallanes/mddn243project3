@@ -32,14 +32,14 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//only moves player of in action mode
-		if (movementMode) {
-			checkGetAction();
-			switch(currentAction.action){
-			case "right":
-				transform.position.x += movementSpeed;
+		//if (movementMode) {
+			//checkGetAction();
+			//switch(currentAction.action){
+			//case "right":
+			//	transform.position.x += movementSpeed;
 
-			}
-		}
+			//}
+		//}
 	}
 
 	//checks to see if old actions done, if so
@@ -56,7 +56,7 @@ public class playerController : MonoBehaviour {
 			//GameManager.completeLevel(); done in trigger 
 		}
 	}
-	void OnTriggerEnter(Collision other){
+	void OnTriggerEnter(Collider other){
 		//check for level end
 		if (other.transform.tag == "goal") {
 			//GameManager.completeLevel ();

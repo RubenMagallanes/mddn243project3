@@ -10,7 +10,7 @@ public class Goal : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider other){
-		GameManager.completeLevel ();
+		//GameManager.completeLevel ();
 
 	}
 	// Update is called once per frame
