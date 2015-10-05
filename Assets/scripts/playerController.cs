@@ -41,6 +41,9 @@ public class playerController : MonoBehaviour {
 			//}
 		//}
 	}
+	public void parseCommands(){
+
+	}
 
 	//checks to see if old actions done, if so
 	void checkGetAction(){
