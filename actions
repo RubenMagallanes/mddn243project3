@@ -1,0 +1,15 @@
+
+
+>in game manager: ArrayList:actions is filled on level start
+>ArrayList:actions in player is populated on start as well, 
+	(blocks till game menagers is done)
+>game state movementMode = false (currently inputting actions)
+>user inputs commands, on textfield exit, parse commands:
+	-string of all commands is passed to input field's "end edit" function
+	-end edit passes string to playercontroller's "parse comands" function
+	-parse commands parses cmmands into actions, checking them against actionList's options, remving them as they go
+		>if (invalid action or parse error)
+			-reloads from GameManager's action list and clears user input after error
+		> else (action valid): 
+			-Queues them up in actionQueue
+			-switch to movemode, which runs through actions, trys to exec and move player

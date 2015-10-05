@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 	public static int currentLevel =0;
 	public static int unlockedLevel =0;
 
-	public static ArrayList actions ;
+	public static ArrayList actions ; // actions available to a player on current level. 
 	public static bool listReady = false;
 
 	void Start(){
