@@ -31,23 +31,43 @@ public class playerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//only moves player of in action mode
-		//if (movementMode) {
-			//checkGetAction();
-			//switch(currentAction.action){
-			//case "right":
-			//	transform.position.x += movementSpeed;
+		//need: 
+			//check to see if fallen off, 
+		//move camera with player/ depending on level maybe
+		//gravity etc for jumping.
+		//check if block in way
 
-			//}
+		//only moves player of in action mode
+		if (movementMode) {
+			checkGetAction();
+
+			doCurrentActionStep();
+			// do current acition
+
+
+			actionFrameCountCurrent ++;
+			}
 		//}
 	}
+
+	private void doCurrentActionStep(){
+		if (currentAction.action.Equals ("move")) {
+		
+		}
+	}
+
 	public void parseCommands(){
 
 	}
 
-	//checks to see if old actions done, if so
+	//checks to see if old actions done, if so, pop next off queue
 	void checkGetAction(){
-
+		if (actionFrameCountCurrent >= actionFrameCountFinal) {
+			Action a =   actionQueue.Dequeue();
+			actionFrameCountFinal = a.frameCount;
+			actionFrameCountCurrent = 0; 
+		 
+		}
 	}
 	void FixedUpdate(){
 
@@ -86,13 +106,41 @@ public class playerController : MonoBehaviour {
 		//post: actionQueue contains actions in right ofder
 	} 
 
+	/*
+		
+	 */
 	public class Action{
 		public string action; // can be walk, jump, etc
 		public int frameCount; // number of frames to do this action, may not need for all actions
+		public string otherInfo; 
+		public int otherData;
 
+		public Action(string kind, string info, int data){
+			this.action = kind;
+			this.otherInfo = info; 
+			this.otherData = data;
+			frames();
+		}
+		public Action (string kind, string info){
+			this.action = kind;
+			this.otherInfo = info; 
+			this.otherData = 0;
+			frames();
+		}
 		public Action(string kind){
 			this.action = kind;
+			this.otherInfo = ""; 
+			this.otherData = 0;
+			frames();
 		}
+
+		private void frames (){
+			if (action.Equals ("move")) {
+				this.frameCount = 120; //TODO affects how long player moves for
+			}
+		}
+
+
 
 		//should probably make other 
 	}
