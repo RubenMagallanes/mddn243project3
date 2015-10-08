@@ -14,7 +14,7 @@ public class playerController : MonoBehaviour {
 	private Action currentAction;
 	private int actionFrameCountCurrent;
 	private int actionFrameCountFinal;
-	private bool done = true; // true when ready to grab next action
+	//private bool done = true; // true when ready to grab next action
 
 	public int movementSpeed = 1;
 	
@@ -24,8 +24,11 @@ public class playerController : MonoBehaviour {
 		actionList = new ArrayList();
 		actionQueue = new Queue ();
 
-		fillActionList ();
-		//localCommand = actionList.Dequeue()
+		//TODO  need to get commands from player after 'enter' is pressed
+		fillActionList (); // blocks until actionlist is full
+
+		transferToQueue ();
+			currentAction = (Action) actionQueue.Dequeue();
 
 	}
 	
@@ -38,11 +41,13 @@ public class playerController : MonoBehaviour {
 		//check if block in way
 
 		//only moves player of in action mode
+		if (!movementMode){
+			//
+		}
 		if (movementMode) {
 			checkGetAction();
 
 			doCurrentActionStep();
-			// do current acition
 
 
 			actionFrameCountCurrent ++;
@@ -51,7 +56,17 @@ public class playerController : MonoBehaviour {
 	}
 
 	private void doCurrentActionStep(){
-		if (currentAction.action.Equals ("move")) {
+		if (transform.position.y < -5) {
+			restart();// TODO restart level becasue fell off
+		}
+
+		if (currentAction.action.Equals ("move")) {			
+			if (currentAction.otherInfo.Equals("right")){
+				//if not blocked TODO
+				transform.position = new Vector3(transform.position.x + 0.3f, transform.position.y, transform.position.z );
+			}else if (currentAction.otherInfo.Equals("left")){
+				//if not blocked TODO
+				transform.position = new Vector3(transform.position.x - 0.3f, transform.position.y, transform.position.z );}
 		
 		}
 	}
@@ -63,7 +78,7 @@ public class playerController : MonoBehaviour {
 	//checks to see if old actions done, if so, pop next off queue
 	void checkGetAction(){
 		if (actionFrameCountCurrent >= actionFrameCountFinal) {
-			Action a =   actionQueue.Dequeue();
+			Action a =  (Action) actionQueue.Dequeue();
 			actionFrameCountFinal = a.frameCount;
 			actionFrameCountCurrent = 0; 
 		 
@@ -73,16 +88,19 @@ public class playerController : MonoBehaviour {
 
 	}
 
+	void restart(){
+		//TODO
+	}
 	void OnCollisionEnter(Collision other){
 		//check for level end / door etc
 		if (other.transform.tag == "goal") {
-			//GameManager.completeLevel(); done in trigger 
+			 //done in trigger 
 		}
 	}
 	void OnTriggerEnter(Collider other){
 		//check for level end
 		if (other.transform.tag == "goal") {
-			//GameManager.completeLevel ();
+
 		}
 	}
 
@@ -95,6 +113,8 @@ public class playerController : MonoBehaviour {
 		foreach (Action element in GameManager.actions) {
 			actionList.Add(element);
 		}
+
+
 		//post: actionList now populated with level's specific actions
 	}
 
@@ -149,7 +169,9 @@ public class playerController : MonoBehaviour {
 
 /* (csharp):
 
-     
+
+
+
     using UnityEngine;
     using System.Collections;
      
