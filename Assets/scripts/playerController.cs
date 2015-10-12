@@ -14,7 +14,7 @@ public class playerController : MonoBehaviour {
 	private Action currentAction;
 	private int actionFrameCountCurrent;
 	private int actionFrameCountFinal;
-	//private bool done = true; // true when ready to grab next action
+	private bool done = true; // true when ready to grab next action
 
 	public int movementSpeed = 1;
 	
@@ -24,83 +24,45 @@ public class playerController : MonoBehaviour {
 		actionList = new ArrayList();
 		actionQueue = new Queue ();
 
-		//TODO  need to get commands from player after 'enter' is pressed
-		fillActionList (); // blocks until actionlist is full
-
-		transferToQueue ();
-			currentAction = (Action) actionQueue.Dequeue();
+		fillActionList ();
+		//localCommand = actionList.Dequeue()
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//need: 
-			//check to see if fallen off, 
-		//move camera with player/ depending on level maybe
-		//gravity etc for jumping.
-		//check if block in way
-
 		//only moves player of in action mode
-		if (!movementMode){
-			//
-		}
-		if (movementMode) {
-			checkGetAction();
+		//if (movementMode) {
+			//checkGetAction();
+			//switch(currentAction.action){
+			//case "right":
+			//	transform.position.x += movementSpeed;
 
-			doCurrentActionStep();
-
-
-			actionFrameCountCurrent ++;
-			}
+			//}
 		//}
 	}
-
-	private void doCurrentActionStep(){
-		if (transform.position.y < -5) {
-			restart();// TODO restart level becasue fell off
-		}
-
-		if (currentAction.action.Equals ("move")) {			
-			if (currentAction.otherInfo.Equals("right")){
-				//if not blocked TODO
-				transform.position = new Vector3(transform.position.x + 0.3f, transform.position.y, transform.position.z );
-			}else if (currentAction.otherInfo.Equals("left")){
-				//if not blocked TODO
-				transform.position = new Vector3(transform.position.x - 0.3f, transform.position.y, transform.position.z );}
-		
-		}
-	}
-
 	public void parseCommands(){
 
 	}
 
-	//checks to see if old actions done, if so, pop next off queue
+	//checks to see if old actions done, if so
 	void checkGetAction(){
-		if (actionFrameCountCurrent >= actionFrameCountFinal) {
-			Action a =  (Action) actionQueue.Dequeue();
-			actionFrameCountFinal = a.frameCount;
-			actionFrameCountCurrent = 0; 
-		 
-		}
+
 	}
 	void FixedUpdate(){
 
 	}
 
-	void restart(){
-		//TODO
-	}
 	void OnCollisionEnter(Collision other){
 		//check for level end / door etc
 		if (other.transform.tag == "goal") {
-			 //done in trigger 
+			//GameManager.completeLevel(); done in trigger 
 		}
 	}
 	void OnTriggerEnter(Collider other){
 		//check for level end
 		if (other.transform.tag == "goal") {
-
+			//GameManager.completeLevel ();
 		}
 	}
 
@@ -113,8 +75,6 @@ public class playerController : MonoBehaviour {
 		foreach (Action element in GameManager.actions) {
 			actionList.Add(element);
 		}
-
-
 		//post: actionList now populated with level's specific actions
 	}
 
@@ -126,41 +86,13 @@ public class playerController : MonoBehaviour {
 		//post: actionQueue contains actions in right ofder
 	} 
 
-	/*
-		
-	 */
 	public class Action{
 		public string action; // can be walk, jump, etc
 		public int frameCount; // number of frames to do this action, may not need for all actions
-		public string otherInfo; 
-		public int otherData;
 
-		public Action(string kind, string info, int data){
-			this.action = kind;
-			this.otherInfo = info; 
-			this.otherData = data;
-			frames();
-		}
-		public Action (string kind, string info){
-			this.action = kind;
-			this.otherInfo = info; 
-			this.otherData = 0;
-			frames();
-		}
 		public Action(string kind){
 			this.action = kind;
-			this.otherInfo = ""; 
-			this.otherData = 0;
-			frames();
 		}
-
-		private void frames (){
-			if (action.Equals ("move")) {
-				this.frameCount = 120; //TODO affects how long player moves for
-			}
-		}
-
-
 
 		//should probably make other 
 	}
@@ -169,9 +101,7 @@ public class playerController : MonoBehaviour {
 
 /* (csharp):
 
-
-
-
+     
     using UnityEngine;
     using System.Collections;
      
