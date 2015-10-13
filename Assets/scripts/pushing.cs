@@ -3,7 +3,7 @@ using System.Collections;
 
 public class pushing : MonoBehaviour {
 
-	float pushPower = 2.0;
+	float pushPower = 2.0f;
 	public void OnControllerColliderHit (ControllerColliderHit hit){
 		Rigidbody body = hit.collider.attachedRigidbody;
 
