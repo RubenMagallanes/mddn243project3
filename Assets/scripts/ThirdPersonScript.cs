@@ -30,15 +30,12 @@ public class ThirdPersonScript : MonoBehaviour {
 		}
 
 
-		if (Input.GetKey ("right")) {
+		if (command == "move") {
 			//transform.position = new Vector3(transform.position.x + 0.3f, transform.position.y, transform.position.z );
 			//anim = SetBool("RunRight", true);
 			//Animation.Play("RunRight");
-		
-		} else if (Input.GetKey ("left")) {
-			//transform.position = new Vector3(transform.position.x - 0.3f, transform.position.y, transform.position.z );	
 		}
-
+		
 	}
 
 	public void giveCommand(string cmd, string opt){
