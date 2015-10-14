@@ -4,22 +4,25 @@ using UnityEngine.UI;
 
 public class UIInputField : MonoBehaviour {
 
-	public Text actionText; 
+	//public Text actionText; 
 	// Use this for initialization
 	void Start () {
-		actionText = GameObject.Find ("InputField").GetComponent<Text> ();
+		//actionText = GameObject.Find ("InputField").GetComponent<Text> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (actionText != null)
-			Debug.Log (actionText);
+		//if (actionText != null)
+			//Debug.Log (actionText);
 	}
 
 	public void CharacterField(string txt){
-		actionText.text = txt;
+		//actionText.text = txt;
 	}
-
+	 
+	//===========================
+	private string command; // string to be parsed through
+	//===========================
 
 	public void clickTest (){
 
@@ -27,20 +30,69 @@ public class UIInputField : MonoBehaviour {
 
 		GameObject cnv = GameObject.Find("InputField");
 		InputField inputField = cnv.GetComponent<InputField> ();
-		Debug.Log (inputField.name);
-		Debug.Log (inputField.text);
-		//Text txt = inputField.GetComponent<Text> ();
-		//Tet inputFieldCo = inputFieldGo.GetComponent<InputField>();
-		//Debug.Log(txt.name);
 
-		//Debug.Log (txt);
-		//Debug.Log (txt.text);
-		//get text from text box
-		//clear text boc
+		Debug.Log (inputField.text);
+		command = inputField.text; // save commands
+		inputField.text = "";	//clear inputfield
+		if (! parseCmnds ()){
+			Debug.Log("error");
+			Debug.Log(command);
+		}
+
 		//parse for commands
 		//construct objects and give to robot
 		//set flag to true so robot executes commands
 
 	}
 
+	private bool parseCmnds(){
+		if (command.StartsWith ("move") || command.StartsWith ("Move")) {
+			return parseMove();
+		}
+		return false;
+
+	}
+	private bool parseMove(){
+		gobble ("move");
+
+		bool l=false, r = false; 
+
+		if (!gobble ("("))
+			return false;
+		if (gobble ("left")) { // try left
+			l = true;
+		} else if (gobble ("right")){ // try right
+			r = true;
+		}
+		
+		if (!(l || r))
+			return false;
+		if (!gobble (")"))
+			return false;
+
+		GameObject player = GameObject.FindWithTag("Player");
+		//ThirdPersonScript otherScript = GetComponent<ThirdPersonScript>();
+		//Debug.Log ("");
+		if (r)
+			player.GetComponent<ThirdPersonScript> ().giveCommand ("move", "right");
+			
+		else 
+			player.GetComponent<ThirdPersonScript> ().giveCommand ("move", "left");
+			
+		Debug.Log ("r, l" + r + ", " + l);
+		return true;	
+
+	}
+
+	/*
+	 *checks for string toEat, removed from the frint of the string command if it is contained 
+	 */
+	private bool gobble(string toEat){
+		if (command.StartsWith (toEat)) {
+			command = command.Remove (0, toEat.Length);
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
