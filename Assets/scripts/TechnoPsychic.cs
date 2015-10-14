@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 using System;
 
@@ -176,3 +176,4 @@ public class TechnoPsychic : MonoBehaviour {
 		terminalCanvas.GetComponent<AudioSource> ().Play ();
 	}
 }
+*/

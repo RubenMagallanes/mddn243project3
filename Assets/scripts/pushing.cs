@@ -7,11 +7,14 @@ public class pushing : MonoBehaviour {
 	public void OnControllerColliderHit (ControllerColliderHit hit){
 		Rigidbody body = hit.collider.attachedRigidbody;
 
-		if (body == null || body.isKinematic) 
-			return ;		
-		if (hit.moveDirection.y < -0.3) 
+		if (body == null || body.isKinematic) {
 			return;
-		Vector3 pushDir = Vector3 (hit.moveDirection.x,0,0);
+		}
+		if (hit.moveDirection.y < -0.3) {
+			return;
+		}
+
+		Vector3 pushDir = new Vector3 (hit.moveDirection.x,0,0);
 	
 		body.velocity = pushDir * pushPower;
 	}
