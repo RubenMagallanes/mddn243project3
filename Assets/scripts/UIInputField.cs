@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -20,6 +20,7 @@ public class UIInputField : MonoBehaviour {
 		actionText.text = txt;
 	}
 
+
 	public void clickTest (){
 
 
@@ -31,4 +32,5 @@ public class UIInputField : MonoBehaviour {
 		//set flag to true so robot executes commands
 
 	}
+
 }

@@ -21,7 +21,7 @@ public class Door : MonoBehaviour {
 
 	IEnumerator TestCoroutine(){
 		Debug.Log ("about to yield return WaitForSeconds(1)");
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(0);
 		Debug.Log ("Just waited 5 seconds");
 		yield return new WaitForSeconds(1);
 		Debug.Log ("Just waited another second");

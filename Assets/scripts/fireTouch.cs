@@ -14,10 +14,10 @@ public class fireTouch : MonoBehaviour {
 	}
 	
 	IEnumerator TestCoroutine(){
-		Debug.Log ("about to yield return WaitForSeconds(1)");
-		yield return new WaitForSeconds(1);
+		Debug.Log ("about to yield return WaitForSeconds(0)");
+		yield return new WaitForSeconds(0);
 		Debug.Log ("Just waited 5 seconds");
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(0);
 		Debug.Log ("Just waited another second");
 		Application.LoadLevel(levelToLoad);
 		yield break;
