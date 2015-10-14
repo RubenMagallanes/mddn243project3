@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 775825c5729834dde995b93b254f1fba
 timeCreated: 1444792738
+=======
+guid: 17b950ce47410374da1c556b001ad52f
+timeCreated: 1444795701
+>>>>>>> c21f93a21222cb7a2711555b9fd31ac54e9a6d54
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -157,6 +162,13 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+<<<<<<< HEAD
+=======
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+>>>>>>> c21f93a21222cb7a2711555b9fd31ac54e9a6d54
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
