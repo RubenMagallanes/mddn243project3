@@ -20,6 +20,68 @@ ModelImporter:
     100024: pCylinder1
     100026: pCylinder2
     100028: //RootNode
+    100030: chest
+    100032: head
+    100034: L_arm
+    100036: L_elbow
+    100038: L_foot
+    100040: L_hand
+    100042: L_knee
+    100044: L_leg
+    100046: mid_torso
+    100048: neck
+    100050: pCube13
+    100052: pCube15
+    100054: pCube16
+    100056: pCube17
+    100058: pCube18
+    100060: pCube20
+    100062: pCube21
+    100064: pCube22
+    100066: pCube23
+    100068: pCube24
+    100070: polySurface10
+    100072: polySurface12
+    100074: polySurface15
+    100076: polySurface16
+    100078: polySurface17
+    100080: polySurface18
+    100082: polySurface19
+    100084: polySurface20
+    100086: polySurface21
+    100088: polySurface22
+    100090: polySurface23
+    100092: polySurface24
+    100094: polySurface25
+    100096: polySurface26
+    100098: polySurface27
+    100100: polySurface28
+    100102: polySurface29
+    100104: polySurface7
+    100106: polySurface7 1
+    100108: polySurface8
+    100110: R_arm
+    100112: R_elbow
+    100114: R_foot
+    100116: R_hand
+    100118: R_knee
+    100120: R_leg
+    100122: spine
+    100124: transform1
+    100126: transform10
+    100128: transform11
+    100130: transform12
+    100132: transform13
+    100134: transform14
+    100136: transform15
+    100138: transform2
+    100140: transform3
+    100142: transform4
+    100144: transform5
+    100146: transform6
+    100148: transform7
+    100150: transform8
+    100152: transform9
     400000: pCube1
     400002: pCube10
     400004: pCube11
@@ -35,6 +97,68 @@ ModelImporter:
     400024: pCylinder1
     400026: pCylinder2
     400028: //RootNode
+    400030: chest
+    400032: head
+    400034: L_arm
+    400036: L_elbow
+    400038: L_foot
+    400040: L_hand
+    400042: L_knee
+    400044: L_leg
+    400046: mid_torso
+    400048: neck
+    400050: pCube13
+    400052: pCube15
+    400054: pCube16
+    400056: pCube17
+    400058: pCube18
+    400060: pCube20
+    400062: pCube21
+    400064: pCube22
+    400066: pCube23
+    400068: pCube24
+    400070: polySurface10
+    400072: polySurface12
+    400074: polySurface15
+    400076: polySurface16
+    400078: polySurface17
+    400080: polySurface18
+    400082: polySurface19
+    400084: polySurface20
+    400086: polySurface21
+    400088: polySurface22
+    400090: polySurface23
+    400092: polySurface24
+    400094: polySurface25
+    400096: polySurface26
+    400098: polySurface27
+    400100: polySurface28
+    400102: polySurface29
+    400104: polySurface7
+    400106: polySurface7 1
+    400108: polySurface8
+    400110: R_arm
+    400112: R_elbow
+    400114: R_foot
+    400116: R_hand
+    400118: R_knee
+    400120: R_leg
+    400122: spine
+    400124: transform1
+    400126: transform10
+    400128: transform11
+    400130: transform12
+    400132: transform13
+    400134: transform14
+    400136: transform15
+    400138: transform2
+    400140: transform3
+    400142: transform4
+    400144: transform5
+    400146: transform6
+    400148: transform7
+    400150: transform8
+    400152: transform9
     2300000: pCube1
     2300002: pCube10
     2300004: pCube11
@@ -77,7 +201,36 @@ ModelImporter:
     4300022: pCube11
     4300024: pCube12
     4300026: pCylinder2
+    4300028: polySurface16
+    4300030: polySurface17
+    4300032: polySurface18
+    4300034: polySurface19
+    4300036: polySurface20
+    4300038: polySurface21
+    4300040: polySurface22
+    4300042: polySurface23
+    4300044: polySurface24
+    4300046: polySurface25
+    4300048: polySurface26
+    4300050: polySurface27
+    4300052: polySurface28
+    4300054: polySurface29
+    7400000: Take 001
     9500000: //RootNode
+    13700000: polySurface16
+    13700002: polySurface17
+    13700004: polySurface18
+    13700006: polySurface19
+    13700008: polySurface20
+    13700010: polySurface21
+    13700012: polySurface22
+    13700014: polySurface23
+    13700016: polySurface24
+    13700018: polySurface25
+    13700020: polySurface26
+    13700022: polySurface27
+    13700024: polySurface28
+    13700026: polySurface29
   materials:
     importMaterials: 1
     materialName: 0
