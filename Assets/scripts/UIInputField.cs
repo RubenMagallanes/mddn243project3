@@ -31,7 +31,7 @@ public class UIInputField : MonoBehaviour {
 		GameObject cnv = GameObject.Find("InputField");
 		InputField inputField = cnv.GetComponent<InputField> ();
 
-		Debug.Log (inputField.text);
+
 		command = inputField.text; // save commands
 		inputField.text = "";	//clear inputfield
 		if (! parseCmnds ()){
@@ -46,8 +46,12 @@ public class UIInputField : MonoBehaviour {
 	}
 
 	private bool parseCmnds(){
-		if (command.StartsWith ("move") || command.StartsWith ("Move")) {
-			return parseMove();
+
+		while (command != "") {
+			Debug.Log ("attepting to parse: " + command);
+			if (command.StartsWith ("move") || command.StartsWith ("Move")) {
+				return parseMove ();
+			}
 		}
 		return false;
 
