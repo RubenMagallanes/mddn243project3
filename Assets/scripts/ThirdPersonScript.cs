@@ -9,7 +9,7 @@ public class ThirdPersonScript : MonoBehaviour {
 	public float gravity = 9.8f;
 	public string command = "";
 	public string option = "";
-	public bool hasCommandTodo = false;
+	public bool hasCommandTodo = true;
 
 	private int framesLeft = 0; 
 	//private Animator anim;
@@ -45,14 +45,17 @@ public class ThirdPersonScript : MonoBehaviour {
 					//Animation.Play("RunRight");
 				} else if (option == "left") {
 					//move left
+					transform.position = new Vector3 (transform.position.x - 0.3f, transform.position.y, transform.position.z);
 				}
 
 			} else if (command == "jump") {
 				if (option == "right") {
-				
+					print ("jumpright");
+					transform.position = new Vector3 (transform.position.x + 0.3f, transform.position.y + 0.3f, transform.position.z);
 					//jump right
 				} else if (option == "left") {
 					//jump left
+					transform.position = new Vector3 (transform.position.x - 0.3f, transform.position.y + 0.3f, transform.position.z);
 				}
 			}
 		}
