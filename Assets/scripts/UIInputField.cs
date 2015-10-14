@@ -51,6 +51,8 @@ public class UIInputField : MonoBehaviour {
 			Debug.Log ("attepting to parse: " + command);
 			if (command.StartsWith ("move") || command.StartsWith ("Move")) {
 				return parseMove ();
+			} else if (command.StartsWith("jump") || command.StartsWith("Jump")){
+				return parseJump();
 			}
 		}
 		return false;
@@ -86,6 +88,37 @@ public class UIInputField : MonoBehaviour {
 		Debug.Log ("r, l" + r + ", " + l);
 		return true;	
 
+	}
+
+	private bool parseJump(){
+		gobble ("jump");
+		
+		bool l=false, r = false; 
+		
+		if (!gobble ("("))
+			return false;
+		if (gobble ("left")) { // try left
+			l = true;
+		} else if (gobble ("right")){ // try right
+			r = true;
+		}
+		
+		if (!(l || r))
+			return false;
+		if (!gobble (")"))
+			return false;
+		
+		GameObject player = GameObject.FindWithTag("Player");
+		//ThirdPersonScript otherScript = GetComponent<ThirdPersonScript>();
+		//Debug.Log ("");
+		if (r)
+			player.GetComponent<ThirdPersonScript> ().giveCommand ("jump", "right");
+		
+		else 
+			player.GetComponent<ThirdPersonScript> ().giveCommand ("jump", "left");
+		
+		Debug.Log ("r, l" + r + ", " + l);
+		return true;	
 	}
 
 	/*
