@@ -31,9 +31,20 @@ public class ThirdPersonScript : MonoBehaviour {
 
 
 		if (command == "move") {
-			//transform.position = new Vector3(transform.position.x + 0.3f, transform.position.y, transform.position.z );
-			//anim = SetBool("RunRight", true);
-			//Animation.Play("RunRight");
+			if (option == "right") {
+				transform.position = new Vector3 (transform.position.x + 0.3f, transform.position.y, transform.position.z);
+				//anim = SetBool("RunRight", true);
+				//Animation.Play("RunRight");
+			} else if (option == "left"){
+				//move left
+			}
+
+		} else if (command == "jump") {
+			if (option == "right"){
+				//jump right
+			} else if (option == "left"){
+				//jump left
+			}
 		}
 		
 	}
