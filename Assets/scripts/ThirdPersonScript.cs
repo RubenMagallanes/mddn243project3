@@ -11,6 +11,7 @@ public class ThirdPersonScript : MonoBehaviour {
 	public string option = "";
 	public bool hasCommandTodo = false;
 
+	private int framesLeft = 0; 
 	//private Animator anim;
 
 	void Start () {
@@ -19,6 +20,11 @@ public class ThirdPersonScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (framesLeft == 0) {
+			command = "";
+			option = "";
+			hasCommandTodo = false;
+		}
 
 		//anim = GetComponent<Animator> ();
 
@@ -26,32 +32,36 @@ public class ThirdPersonScript : MonoBehaviour {
 			Debug.Log(command);
 		}
 		if (Input.GetKey (KeyCode.Space)) {
-			transform.position = new Vector3 (transform.position.x, transform.position.y+gravity*Time.deltaTime+0.1f,transform.position.z);
+
 		}
 
+		if (hasCommandTodo) {
+			framesLeft --;
+			if (command == "move") {
+				if (option == "right") {
+					transform.position = new Vector3 (transform.position.x + 0.3f, transform.position.y, transform.position.z);
+				
+					//anim = SetBool("RunRight", true);
+					//Animation.Play("RunRight");
+				} else if (option == "left") {
+					//move left
+				}
 
-		if (command == "move") {
-			if (option == "right") {
-				transform.position = new Vector3 (transform.position.x + 0.3f, transform.position.y, transform.position.z);
-				//anim = SetBool("RunRight", true);
-				//Animation.Play("RunRight");
-			} else if (option == "left"){
-				//move left
-			}
-
-		} else if (command == "jump") {
-			if (option == "right"){
-				//jump right
-			} else if (option == "left"){
-				//jump left
+			} else if (command == "jump") {
+				if (option == "right") {
+				
+					//jump right
+				} else if (option == "left") {
+					//jump left
+				}
 			}
 		}
-		
 	}
 
 	public void giveCommand(string cmd, string opt){
 		this.command = cmd;
 		this.option = opt;
 		this.hasCommandTodo = true;
+		this.framesLeft = 24;
 	}
 }
