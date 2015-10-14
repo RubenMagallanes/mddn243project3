@@ -7,8 +7,8 @@ public class Door : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		Debug.Log ("About to StartCoroutine");
-		Debug.Log ("Back from StartCoroutine");
+		//Debug.Log ("About to StartCoroutine");
+		//Debug.Log ("Back from StartCoroutine");
 	}
 	
 	// Update is called once per frame

@@ -22,7 +22,7 @@ public class ThirdPersonScript : MonoBehaviour {
 		//anim = GetComponent<Animator> ();
 
 		if (Input.GetKey (KeyCode.Space)) {
-			transform.position = new Vector3 (transform.position.x, transform.position.y+gravity*Time.deltaTime+0.1f,transform.position.z);
+			//transform.position = new Vector3 (transform.position.x, transform.position.y+gravity*Time.deltaTime+0.1f,transform.position.z);
 		}
 
 

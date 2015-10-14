@@ -23,8 +23,18 @@ public class UIInputField : MonoBehaviour {
 
 	public void clickTest (){
 
+		//InputField inputField = (InputField) GameObject.Find("InputField");
 
-		Debug.Log ("clicc");
+		GameObject cnv = GameObject.Find("InputField");
+		InputField inputField = cnv.GetComponent<InputField> ();
+		Debug.Log (inputField.name);
+		Debug.Log (inputField.text);
+		//Text txt = inputField.GetComponent<Text> ();
+		//Tet inputFieldCo = inputFieldGo.GetComponent<InputField>();
+		//Debug.Log(txt.name);
+
+		//Debug.Log (txt);
+		//Debug.Log (txt.text);
 		//get text from text box
 		//clear text boc
 		//parse for commands
