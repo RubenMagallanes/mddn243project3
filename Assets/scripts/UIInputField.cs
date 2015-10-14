@@ -7,12 +7,13 @@ public class UIInputField : MonoBehaviour {
 	public Text actionText; 
 	// Use this for initialization
 	void Start () {
-		actionText = GameObject.Find ("commands").GetComponent<Text> ();
+		actionText = GameObject.Find ("InputField").GetComponent<Text> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (actionText != null)
+			Debug.Log (actionText);
 	}
 
 	public void CharacterField(string txt){
@@ -20,6 +21,8 @@ public class UIInputField : MonoBehaviour {
 	}
 
 	public void clickTest (){
+
+
 		Debug.Log ("clicc");
 		//get text from text box
 		//clear text boc

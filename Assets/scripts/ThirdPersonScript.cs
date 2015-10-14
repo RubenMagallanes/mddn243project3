@@ -5,6 +5,8 @@ public class ThirdPersonScript : MonoBehaviour {
 	// Use this for initialization
 	
 	public float gravity = 9.8f;
+	public string command = "";
+	public bool hasCommandTodo = false;
 
 	void Start () {
 
