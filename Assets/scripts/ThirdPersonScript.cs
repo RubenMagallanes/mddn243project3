@@ -7,6 +7,8 @@ public class ThirdPersonScript : MonoBehaviour {
 	//public bool RunRight;
 
 	public float gravity = 9.8f;
+	public string command = "";
+	public bool hasCommandTodo = false;
 
 	//private Animator anim;
 

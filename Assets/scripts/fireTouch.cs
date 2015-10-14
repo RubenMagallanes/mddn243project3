@@ -5,8 +5,6 @@ public class fireTouch : MonoBehaviour {
 	public string levelToLoad;
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("About to StartCoroutine");
-		Debug.Log ("Back from StartCoroutine");
 	}
 	
 	// Update is called once per frame
